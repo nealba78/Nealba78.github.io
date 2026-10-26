@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Tesla auth callback</title></head>
+<body style="font-family:sans-serif;padding:1em">
+<h3>Tesla sign-in done</h3>
+<p>Copy this code and send it back right away (it expires within minutes):</p>
+<textarea id="c" rows="4" style="width:100%" readonly></textarea>
+<p id="s"></p>
+<script>
+const p=new URLSearchParams(location.search);
+document.getElementById('c').value=p.get('code')||('ERROR: '+(p.get('error')||'no code')+' '+(p.get('error_description')||''));
+document.getElementById('s').textContent='state: '+(p.get('state')||'');
+</script></body></html>
